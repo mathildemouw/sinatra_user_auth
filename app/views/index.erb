@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Welcome to Mordhaus!</h1>
+  <% if logged_in? && session[:id] = current_user.id%>
+  <p>Hello <%= current_user.email %>!</p>
+  <ul>Klokateers:
+    <% User.all.each do |user|%>
+    <li><%= user.email %></li>
+    <%end%>
+  </ul>
+<form action='/' method='post'>
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Log Out">
+</form>
+  <% else %>
+  <p> You must log in </p>
+<form action='/' method='post'
+<p>
+  Email: <input type="text" name="email"><br>
+  Password: <input type="password" name="password"><br>
+  <input type="submit" value="Go!">
+</p>
+</form>
+<button><a href="/users/new">Sign up!</a></button>
+  <% end %>
+</div>
